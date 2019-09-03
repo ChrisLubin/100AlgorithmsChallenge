@@ -1,5 +1,7 @@
 function checkPalindrome(inputString: string): boolean {
+    const reversedString = inputString.split('').reverse().join('');
 
+    return inputString === reversedString ? true : false;
 }
 
 console.log(checkPalindrome('aabaa'));
