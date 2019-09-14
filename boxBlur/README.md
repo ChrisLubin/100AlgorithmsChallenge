@@ -19,6 +19,17 @@ the output should be boxBlur(image) = [[1]].
 
 In the given example all boundary pixels were cropped, and the value of the pixel in the middle was obtained as (1 + 1 + 1 + 1 + 7 + 1 + 1 + 1 + 1) / 9 = 15 / 9 = ~rounded down~ = 1.
 
+For
+
+    image = [[7, 4, 0, 1], 
+            [5, 6, 2, 2], 
+            [6, 10, 7, 8], 
+            [1, 4, 2, 0]]
+the output should be boxBlur(image) = [[5, 4], 
+                                       [4, 4]].
+
+There are four 3 × 3 squares in the input image, so there should be four integers in the blurred output. To get the first value: (7 + 4 + 0 + 5 + 6 + 2 + 6 + 10 + 7) = 47 / 9 = 5.2222 = 5. The other three integers are obtained the same way, then the surrounding integers are cropped from the final result.
+
 **Hints**
 -   push()
 -   Math.floor()

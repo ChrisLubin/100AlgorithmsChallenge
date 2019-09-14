@@ -1,5 +1,22 @@
 function firstNotRepeatingCharacter(s: string): string {
-    // O(1) means just don't use nested for loops
+    let strArr = s.split('');
+    const seenAlready = [];
+
+    for (let i = 0; i < s.length; i++) {
+        const letter = s[i];
+        strArr.splice(i, 1);
+
+        if (strArr.includes(letter)) {
+            seenAlready.push(letter);
+            strArr = s.split('');
+        } else {
+            if (!seenAlready.includes(letter)) {
+                return letter;
+            }
+        }
+    }
+
+    return '_';
 }
 
 console.log(firstNotRepeatingCharacter('abacabad'));
